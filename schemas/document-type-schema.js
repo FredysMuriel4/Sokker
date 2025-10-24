@@ -15,7 +15,7 @@ const documentTypeSchema = new mongoose.Schema({
     timestamps: true
 });
 
-documentTypeSchema.plugin(AutoIncrement(mongoose), { inc_field: "id" });
+documentTypeSchema.plugin(AutoIncrement(mongoose), { inc_field: "id", id: "DocumentType_id" });
 
 const documentType = mongoose.model("DocumentType", documentTypeSchema);
 

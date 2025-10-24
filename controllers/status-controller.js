@@ -1,6 +1,6 @@
 import Status from '../schemas/status-schema.js';
 
-const getAllStatuses = async (res) => {
+export const getAllStatuses = async (res) => {
 
     const statuses = await Status.find({});
     return res.status(200).send({
@@ -9,7 +9,7 @@ const getAllStatuses = async (res) => {
     })
 }
 
-const createStatus = async (name, res) => {
+export const createStatus = async (name, res) => {
 
     try {
         await Status.create({
@@ -25,7 +25,7 @@ const createStatus = async (name, res) => {
     }
 }
 
-const updateStatus = async (id, name, res) => {
+export const updateStatus = async (id, name, res) => {
 
     if(!parseInt(id, 10)) {
         return res.status(400).send({
@@ -50,7 +50,8 @@ const updateStatus = async (id, name, res) => {
     }
 }
 
-const deleteStatus = async (id, res) => {
+export const deleteStatus = async (id, res) => {
+    
     if(!parseInt(id, 10)) {
         return res.status(400).send({
             message: 'Invalid ID format'
@@ -73,5 +74,3 @@ const deleteStatus = async (id, res) => {
         });
     }
 };
-
-export { createStatus, getAllStatuses, updateStatus, deleteStatus };

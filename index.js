@@ -4,6 +4,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import statusRouter from './routes/status-route.js';
+import documentType from './routes/document-type-route.js';
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(express.text());
 
 app.use("/status", statusRouter);
+app.use("/document-type", documentType);
 
 const bootstrap = async () => {
     await mongoose.connect(process.env.MONGODB_URL);
