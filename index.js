@@ -3,8 +3,9 @@ console.clear();
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import statusRouter from './routes/status-route.js';
-import documentType from './routes/document-type-route.js';
+import statusRouter from './routes/StatusRoutes.js';
+import documentType from './routes/DocumentTypeRoutes.js';
+import user from './routes/UserRoutes.js';
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(express.text());
 
 app.use("/status", statusRouter);
 app.use("/document-type", documentType);
+app.use("/user", user);
 
 const bootstrap = async () => {
     await mongoose.connect(process.env.MONGODB_URL);

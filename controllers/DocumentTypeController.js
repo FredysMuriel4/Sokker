@@ -1,4 +1,4 @@
-import DocumentType from '../schemas/document-type-schema.js';
+import DocumentType from '../schemas/DocumentType.js';
 
 export const getAllDocumentTypes = async (res) => {
 

@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import AutoIncrement from "mongoose-sequence";
-import DocumentType from "./document-type-schema.js";
-import Role from "./role-schema.js";
+import DocumentType from "./DocumentType.js";
 
 const userSchema = new mongoose.Schema({
     id: {
@@ -45,15 +44,16 @@ const userSchema = new mongoose.Schema({
         default: false
     },
     role: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Role,
+        type: String,
+        enum: ['admin', 'customer'],
+        default: 'customer',
         required: true
     }
 }, {
     timestamps: true
 });
 
-userSchema.plugin(AutoIncrement(mongoose), { inc_field: "id" });
+userSchema.plugin(AutoIncrement(mongoose), { inc_field: "id", id: "User_id" });
 
 const user = mongoose.model("User", userSchema);
 

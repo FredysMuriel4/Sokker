@@ -1,5 +1,5 @@
 import express from "express";
-import { createDocumentType, getAllDocumentTypes, updateDocumentType, deleteDocumentType } from "../controllers/document-type-controller.js";
+import { createDocumentType, getAllDocumentTypes, updateDocumentType, deleteDocumentType } from "../controllers/DocumentTypeController.js";
 
 const router = express.Router();
 

@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import AutoIncrement from "mongoose-sequence";
-import User from "./user-schema.js";
+import User from "./User.js";
 import Field from "./field-schema.js";
-import Status from "./status-schema.js";
+import Status from "./ReserveStatus.js";
 
 const reserveSchema = new mongoose.Schema({
     id: {

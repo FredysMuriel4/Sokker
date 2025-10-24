@@ -1,4 +1,4 @@
-import Status from '../schemas/status-schema.js';
+import Status from '../schemas/ReserveStatus.js';
 
 export const getAllStatuses = async (res) => {
 

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import AutoIncrement from "mongoose-sequence";
-import User from "./user-schema.js";
+import User from "./User.js";
 
 const fieldSchema = new mongoose.Schema({
     id: {
