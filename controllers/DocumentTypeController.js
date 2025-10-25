@@ -1,8 +1,9 @@
 import DocumentType from '../schemas/DocumentType.js';
+import { allDocumentTypes, storeDocumentType } from '../services/DocumentTypeService.js';
 
 export const getAllDocumentTypes = async (res) => {
 
-    const documentTypes = await DocumentType.find({});
+    const documentTypes = await allDocumentTypes();
     return res.status(200).send({
         message: 'Document types',
         data: documentTypes
@@ -12,9 +13,7 @@ export const getAllDocumentTypes = async (res) => {
 export const createDocumentType = async (name, res) => {
 
     try {
-        await DocumentType.create({
-            name: name
-        });
+        await storeDocumentType(name);
         res.status(201).send({ 
             message: 'Document type created successfully' 
         });
